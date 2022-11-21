@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   config = {
     home.packages = with pkgs; [
+      gnome.dconf-editor
       gnomeExtensions.appindicator
       gnomeExtensions.dash-to-panel
       gnomeExtensions.no-overview
@@ -36,6 +37,11 @@
       # Show both icons and window in window switcher
       "org/gnome/shell/window-switcher" = {
         app-icon-mode = "both";
+      };
+
+      # Use dark color scheme
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
       };
 
       # Dash to Panel configuration options

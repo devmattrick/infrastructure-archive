@@ -8,6 +8,8 @@
     # Use xanmod for desktops
     boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linuxKernel.kernels.linux_xanmod;
 
+    boot.supportedFilesystems = [ "ntfs" ];
+
     environment.systemPackages = with pkgs; [ firefox ];
 
     services.xserver = {
