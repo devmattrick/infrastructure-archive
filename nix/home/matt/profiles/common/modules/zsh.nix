@@ -1,5 +1,5 @@
 { lib, ... }: {
-  home-manager.users.matt = {
+  config = {
     programs.zsh = {
       enable = true;
       enableAutosuggestions = true;

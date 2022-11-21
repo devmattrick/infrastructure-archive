@@ -2,7 +2,6 @@
   config = {
     programs.firefox = {
       enable = true;
-      package = pkgs.firefox-devedition-bin;
 
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         ublock-origin
@@ -26,8 +25,9 @@
             "eBay".metaData.hidden = true;
             "Wikipedia (en)".metaData.hidden = true;
           };
+        };
 
-          settings = {
+        settings = {
             # Disable "first run" page
             "trailhead.firstrun.didSeeAboutWelcome" = true;
 
@@ -49,8 +49,54 @@
             "toolkit.telemetry.coverage.opt-out" = true;
             "experiments.enabled" = false;
             "network.allow-experiments" = false;
+
+            # UI Customization
+            "browser.uiCustomization.state" = ''
+              {
+                "placements":{
+                  "widget-overflow-fixed-list":[
+                    "sponsorblocker_ajay_app-browser-action"
+                  ],
+                  "nav-bar":[
+                    "back-button",
+                    "forward-button",
+                    "stop-reload-button",
+                    "urlbar-container",
+                    "downloads-button",
+                    "ublock0_raymondhill_net-browser-action",
+                    "_d634138d-c276-4fc8-924b-40a0ea21d284_-browser-action"
+                  ],
+                  "toolbar-menubar":[
+                    "menubar-items"
+                  ],
+                  "TabsToolbar":[
+                    "tabbrowser-tabs",
+                    "new-tab-button",
+                    "alltabs-button"
+                  ],
+                  "PersonalToolbar":[
+                    "personal-bookmarks"
+                  ]
+                },
+                "seen":[
+                  "save-to-pocket-button",
+                  "developer-button",
+                  "ublock0_raymondhill_net-browser-action",
+                  "_d634138d-c276-4fc8-924b-40a0ea21d284_-browser-action",
+                  "sponsorblocker_ajay_app-browser-action"
+                ],
+                "dirtyAreaCache":[
+                  "nav-bar",
+                  "PersonalToolbar",
+                  "toolbar-menubar",
+                  "TabsToolbar",
+                  "widget-overflow-fixed-list"
+                ],
+                "currentVersion":18,
+                "newElementCount":4
+              }
+            '';
           };
-        };
       };
     };
   };

@@ -6,6 +6,8 @@
       gnomeExtensions.no-overview
     ];
 
+    gtk.theme.name = "Adwaita-dark";
+
     # A bunch of config changes to make GNOME bearable
     dconf.settings = {
       # Enable GNOME extensions

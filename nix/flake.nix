@@ -22,6 +22,7 @@
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
+        config.allowUnfree = true;
         overlays = [ nur.overlay ];
       };
     in
@@ -31,7 +32,7 @@
           inherit system;
 
           modules = [
-            ./system/hosts/hydrogen.nix
+            ./system/hosts/hydrogen
           ];
 
           specialArgs = inputs;
@@ -47,21 +48,5 @@
           ];
         };
       };
-
-      # deploy-rs configuration
-      deploy.nodes = {
-        sshUser = "matt";
-        user = "root";
-
-        # When I add server configs, this will probably only be used for those, but I have this here as a placeholder...
-        hydrogen = {
-          profiles = {
-            system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.hydrogen;
-            home.path = deploy-rs.lib.x86_64-linux.activate.home-manager self.homeConfigurations."matt@hydrogen";
-          };
-        };
-      };
-
-      checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
     };
 }
