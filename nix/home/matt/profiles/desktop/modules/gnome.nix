@@ -46,7 +46,7 @@
         dot-color-dominant = true;
         dot-size = 4;
         dot-style-focused = "DOTS";
-        dot-style-unfocues = "DOTS";
+        dot-style-unfocused = "DOTS";
         group-apps = true;
         hotkeys-overlay-combo = "TEMPORARILY";
         window-preview-title-position = "TOP";
