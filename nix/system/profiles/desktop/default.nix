@@ -1,12 +1,13 @@
 { pkgs, ... }: {
   imports = [
     ./modules/1password.nix
+    ./modules/noisetorch.nix
   ];
 
   config = {
     # Use xanmod for desktops
     boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linuxKernel.kernels.linux_xanmod;
-   
+
     environment.systemPackages = with pkgs; [ firefox ];
 
     services.xserver = {
