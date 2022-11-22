@@ -42,5 +42,10 @@
       pkgs.gnome-tour
       pkgs.gnome-connections
     ];
+
+    # Install GNOME Tweaks
+    environment.systemPackages = with pkgs; [
+      gnome.gnome-tweaks
+    ];
   };
 }
