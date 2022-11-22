@@ -29,7 +29,10 @@
 
     security.polkit.enable = true;
 
-    services.printing.enable = true;
+    services.printing = {
+      enable = true;
+      webInterface = false;
+    };
 
     documentation.nixos.enable = false;
   };

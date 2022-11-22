@@ -1,12 +1,14 @@
 { config, ... }: {
   imports = [
     ./modules/chromium.nix
+    ./modules/cups.nix
     ./modules/discord.nix
     ./modules/firefox.nix
     ./modules/gnome.nix
     ./modules/spotify.nix
     ./modules/telegram.nix
     ./modules/vlc.nix
+    ./modules/xterm.nix
   ];
 
   config = {
