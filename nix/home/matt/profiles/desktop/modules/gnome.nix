@@ -34,6 +34,10 @@
         switch-windows-backward = [ "<Shift><Alt>Tab" ];
       };
 
+      "org/gnome/desktop/wm/preferences" = {
+        button-layout = ":minimize,maximize,close";
+      };
+
       # Show both icons and window in window switcher
       "org/gnome/shell/window-switcher" = {
         app-icon-mode = "both";
