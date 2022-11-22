@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   imports = [
     ./modules/1password.nix
+    ./modules/gnome.nix
     ./modules/noisetorch.nix
   ];
 
@@ -11,12 +12,6 @@
     boot.supportedFilesystems = [ "ntfs" ];
 
     environment.systemPackages = with pkgs; [ firefox ];
-
-    services.xserver = {
-      enable = true;
-      displayManager.gdm.enable = true;
-      desktopManager.gnome.enable = true;
-    };
 
     security.rtkit.enable = true;
 
@@ -30,15 +25,12 @@
       pulse.enable = true;
     };
 
-    services.dbus.enable = true;
-    programs.dconf.enable = true;
-
-    xdg.portal.enable = true;
-
     hardware.bluetooth.enable = true;
 
     security.polkit.enable = true;
 
     services.printing.enable = true;
+
+    documentation.nixos.enable = false;
   };
 }
