@@ -2,6 +2,7 @@
   imports = [
     ./modules/home-manager.nix
     ./modules/htop.nix
+    ./modules/micro.nix
   ];
 
   config = {
