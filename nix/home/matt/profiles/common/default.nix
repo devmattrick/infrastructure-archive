@@ -1,5 +1,6 @@
 { pkgs, home-manager, ... }: {
   imports = [
+    ./modules/btop.nix
     ./modules/git.nix
     ./modules/micro.nix
     ./modules/zsh.nix
