@@ -1,8 +1,8 @@
 { pkgs, ... }: {
   imports = [
+    ./modules/btop.nix
     ./modules/git.nix
     ./modules/home-manager.nix
-    ./modules/htop.nix
     ./modules/micro.nix
   ];
 

@@ -1,5 +1,6 @@
 { config, ... }: {
   imports = [
+    ./modules/btop.nix
     ./modules/chromium.nix
     ./modules/cups.nix
     ./modules/discord.nix

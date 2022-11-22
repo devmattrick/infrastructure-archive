@@ -1,1 +1,5 @@
-{ ... }: { }
+{ ... }: {
+  imports = [
+    ./modules/lutris.nix
+  ];
+}
