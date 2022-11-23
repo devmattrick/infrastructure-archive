@@ -1,11 +1,11 @@
 { config, ... }: {
   imports = [
-    ./modules/btop.nix
     ./modules/chromium.nix
     ./modules/cups.nix
     ./modules/discord.nix
     ./modules/firefox.nix
     ./modules/gnome.nix
+    ./modules/htop.nix
     ./modules/spotify.nix
     ./modules/telegram.nix
     ./modules/vlc.nix
