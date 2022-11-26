@@ -3,6 +3,7 @@
     ./modules/git.nix
     ./modules/htop.nix
     ./modules/home-manager.nix
+    ./modules/ldns.nix
     ./modules/micro.nix
   ];
 
@@ -21,6 +22,8 @@
     system.stateVersion = "22.05";
 
     nixpkgs.config.allowUnfree = true;
+
+    networking.domain = "lab.mattrick.org";
 
     # Use zsh as the default user shell
     programs.zsh.enable = true;

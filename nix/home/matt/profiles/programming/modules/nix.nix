@@ -1,3 +1,3 @@
 { pkgs, ... }: {
-  home.packages = with pkgs; [ rnix-lsp ];
+  home.packages = with pkgs; [ nil ];
 }
