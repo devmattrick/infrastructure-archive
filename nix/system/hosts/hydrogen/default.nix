@@ -5,6 +5,7 @@
     ../../profiles/common
     ../../profiles/desktop
     ../../profiles/gaming
+    ../../profiles/programming
 
     ../../modules/nvidia.nix
   ];
