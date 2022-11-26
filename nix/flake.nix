@@ -17,41 +17,45 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, nur, home-manager, deploy-rs }:
-    let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs {
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    nur,
+    home-manager,
+    deploy-rs,
+  }: let
+    system = "x86_64-linux";
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+      overlays = [
+        nur.overlay
+        (import ./overlays)
+      ];
+    };
+  in {
+    nixosConfigurations = {
+      "hydrogen" = nixpkgs.lib.nixosSystem {
         inherit system;
-        config.allowUnfree = true;
-        overlays = [
-          nur.overlay
-          (import ./overlays)
+
+        modules = [
+          ./system/hosts/hydrogen
+        ];
+
+        specialArgs = inputs;
+      };
+    };
+
+    homeConfigurations = {
+      "matt@hydrogen" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+
+        modules = [
+          ./home/matt/hosts/hydrogen.nix
         ];
       };
-    in
-    {
-      nixosConfigurations = {
-        "hydrogen" = nixpkgs.lib.nixosSystem {
-          inherit system;
-
-          modules = [
-            ./system/hosts/hydrogen
-          ];
-
-          specialArgs = inputs;
-        };
-      };
-
-      homeConfigurations = {
-        "matt@hydrogen" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-
-          modules = [
-            ./home/matt/hosts/hydrogen.nix
-          ];
-        };
-      };
-
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
     };
+
+    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
+  };
 }

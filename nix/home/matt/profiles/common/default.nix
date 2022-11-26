@@ -1,4 +1,8 @@
-{ pkgs, home-manager, ... }: {
+{
+  pkgs,
+  home-manager,
+  ...
+}: {
   imports = [
     ./modules/git.nix
     ./modules/micro.nix

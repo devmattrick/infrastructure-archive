@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   imports = [
     ./modules/1password.nix
     ./modules/gnome.nix
@@ -9,9 +9,9 @@
     # Use xanmod for desktops
     boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linuxKernel.kernels.linux_xanmod;
 
-    boot.supportedFilesystems = [ "ntfs" ];
+    boot.supportedFilesystems = ["ntfs"];
 
-    environment.systemPackages = with pkgs; [ firefox ];
+    environment.systemPackages = with pkgs; [firefox];
 
     security.rtkit.enable = true;
 

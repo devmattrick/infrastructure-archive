@@ -1,4 +1,4 @@
-{ config, ... }: {
+{config, ...}: {
   imports = [
     ./modules/chromium.nix
     ./modules/cups.nix

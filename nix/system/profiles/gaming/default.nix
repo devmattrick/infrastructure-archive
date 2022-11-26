@@ -1,4 +1,8 @@
-{ lib, pkgs, ... }: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   config = {
     # Unfortunately, home-manager (understandably) doesn't have a module for Steam, so install globally
     programs.steam = {
@@ -8,10 +12,11 @@
     };
 
     # Allow unfree Steam packages
-    nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-      "steam"
-      "steam-original"
-      "steam-runtime"
-    ];
+    nixpkgs.config.allowUnfreePredicate = pkg:
+      builtins.elem (lib.getName pkg) [
+        "steam"
+        "steam-original"
+        "steam-runtime"
+      ];
   };
 }

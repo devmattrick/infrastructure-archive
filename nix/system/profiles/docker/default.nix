@@ -1,11 +1,11 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   config = {
     virtualisation.docker = {
       enable = true;
     };
 
     users.users = {
-      matt.extraGroups = [ "docker" ];
+      matt.extraGroups = ["docker"];
     };
   };
 }

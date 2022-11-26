@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   config = {
     # Hide htop from launcher
     xdg.desktopEntries.htop = {

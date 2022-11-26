@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   config = {
-    home.packages = with pkgs; [ yarn nodejs ];
+    home.packages = with pkgs; [yarn nodejs];
   };
 }

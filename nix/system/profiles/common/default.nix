@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   imports = [
     ./modules/git.nix
     ./modules/htop.nix
@@ -9,7 +9,7 @@
 
   config = {
     nix.settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = ["nix-command" "flakes"];
       auto-optimise-store = true;
     };
 
@@ -30,7 +30,7 @@
     users.defaultUserShell = pkgs.zsh;
 
     # Enable zsh shell completion for system packages
-    environment.pathsToLink = [ "/share/zsh" ];
+    environment.pathsToLink = ["/share/zsh"];
 
     # Create users
     users.users.matt = {

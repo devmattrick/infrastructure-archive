@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   config = {
     home.packages = with pkgs; [
       gnome.dconf-editor
@@ -28,10 +28,10 @@
 
       # Use the window switcher on Alt-Tab instead of application switcher (why is this not the default??)
       "org/gnome/desktop/wm/keybindings" = {
-        switch-applications = [ ];
-        switch-applications-backward = [ ];
-        switch-windows = [ "<Alt>Tab" ];
-        switch-windows-backward = [ "<Shift><Alt>Tab" ];
+        switch-applications = [];
+        switch-applications-backward = [];
+        switch-windows = ["<Alt>Tab"];
+        switch-windows-backward = ["<Shift><Alt>Tab"];
       };
 
       "org/gnome/desktop/wm/preferences" = {

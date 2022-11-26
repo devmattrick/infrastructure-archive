@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   config = {
-    home.packages = with pkgs; [ tdesktop ];
+    home.packages = with pkgs; [tdesktop];
   };
 }

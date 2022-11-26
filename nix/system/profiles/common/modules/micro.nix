@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   config = {
-    environment.systemPackages = with pkgs; [ micro ];
+    environment.systemPackages = with pkgs; [micro];
   };
 }

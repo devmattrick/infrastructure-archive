@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   imports = [
     ./modules/golang.nix
     ./modules/nix.nix

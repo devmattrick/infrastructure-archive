@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   config = {
     # Hide CUPS "Manage Printing" from launcher
     xdg.desktopEntries.cups = {

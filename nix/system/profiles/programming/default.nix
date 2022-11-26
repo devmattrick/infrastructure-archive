@@ -1,7 +1,11 @@
-{ lib, pkgs, ... }: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     ../docker
   ];
 
-  config = { };
+  config = {};
 }

@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   config = {
     # Hide XTerm from launcher
     xdg.desktopEntries.xterm = {
