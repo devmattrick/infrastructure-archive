@@ -1,9 +1,10 @@
-name: Build Flake
+name: Check Flake
 on:
   - push
 
 jobs:
   build:
+    name: Build
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -28,9 +29,6 @@ jobs:
       - name: "Import Nix store cache"
         if: "steps.nix-cache.outputs.cache-hit == 'true'"
         run: "nix copy --from /tmp/nixcache .#"
-
-      - name: Build Flake
-        run: nix build
 
       - name: Check Flake
         run: nix flake check
