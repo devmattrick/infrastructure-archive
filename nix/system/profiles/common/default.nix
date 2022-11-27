@@ -5,6 +5,7 @@
     ./modules/home-manager.nix
     ./modules/ldns.nix
     ./modules/micro.nix
+    ./modules/users.nix
   ];
 
   config = {

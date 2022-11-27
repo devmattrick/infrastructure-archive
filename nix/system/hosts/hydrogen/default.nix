@@ -16,7 +16,6 @@
 
   config = {
     networking.hostName = "hydrogen";
-    networking.networkmanager.enable = true;
 
     time.timeZone = "America/Los_Angeles";
     i18n.defaultLocale = "en_US.utf8";
@@ -34,17 +33,6 @@
     services.xserver = {
       layout = "us";
       xkbVariant = "";
-    };
-
-    users.users.matt = {
-      isNormalUser = true;
-
-      description = "Matt";
-
-      extraGroups = [
-        "wheel"
-        "networkmanager"
-      ];
     };
   };
 }

@@ -1,10 +1,6 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
+{...}: {
   imports = [
-    ../docker
+    ../../modules/docker.nix
   ];
 
   config = {};

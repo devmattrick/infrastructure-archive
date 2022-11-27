@@ -15,6 +15,8 @@
 
     security.rtkit.enable = true;
 
+    networking.networkmanager.enable = true;
+
     # Use PipeWire for audio
     sound.enable = true;
     hardware.pulseaudio.enable = false;
