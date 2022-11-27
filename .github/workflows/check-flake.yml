@@ -13,26 +13,17 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Cache Nix store
-        uses: actions/cache@v3
-        id: nix-cache
-        with:
-          path: /tmp/nixcache
-          key: ${{ runner.os }}-nix-store-${{ hashFiles('nix/flake.lock', 'nix/flake.nix') }}
-
       - name: Install Nix
         uses: cachix/install-nix-action@v18
         with:
           extra_nix_config: |
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
 
-      - name: "Import Nix store cache"
-        if: "steps.nix-cache.outputs.cache-hit == 'true'"
-        run: "nix copy --from /tmp/nixcache .#"
+      - name: Cache install Nix packages
+        uses: mtoohey31/cache-flake-attrs@v2.0.0
+        with:
+          key: ${{ runner.os }}-nix-${{ hashFiles('./nix/flake.lock', './nix/flake.nix') }}
 
       - name: Check Flake
         run: nix flake check
 
-      - name: "Export Nix store cache"
-        if: "steps.nix-cache.outputs.cache-hit != 'true'"
-        run: "nix copy --to /tmp/nixcache .#"
