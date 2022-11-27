@@ -4,6 +4,7 @@
     ./modules/cups.nix
     ./modules/discord.nix
     ./modules/firefox.nix
+    ./modules/git.nix
     ./modules/gnome.nix
     ./modules/htop.nix
     ./modules/spotify.nix
