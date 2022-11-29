@@ -5,6 +5,9 @@
       enableAutosuggestions = true;
       enableSyntaxHighlighting = true;
       dotDir = ".config/zsh";
+      localVariables = {
+        ZSH_AUTOSUGGEST_STRATEGY = ["history" "completion"];
+      };
     };
 
     programs.starship = {
