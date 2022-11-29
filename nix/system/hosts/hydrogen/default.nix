@@ -11,6 +11,7 @@
     ../../profiles/gaming
     ../../profiles/programming
 
+    ../../modules/logitech.nix
     ../../modules/nvidia.nix
   ];
 
