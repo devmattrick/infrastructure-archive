@@ -1,10 +1,11 @@
 {pkgs, ...}: {
   imports = [
     ./modules/git.nix
-    ./modules/htop.nix
     ./modules/home-manager.nix
+    ./modules/htop.nix
     ./modules/ldns.nix
     ./modules/micro.nix
+    ./modules/openssh.nix
     ./modules/users.nix
   ];
 
