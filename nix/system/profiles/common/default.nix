@@ -20,8 +20,6 @@
       options = "--delete-older-than 30d";
     };
 
-    system.stateVersion = "22.05";
-
     nixpkgs.config.allowUnfree = true;
 
     networking.domain = "lab.mattrick.org";
