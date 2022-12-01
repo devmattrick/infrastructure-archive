@@ -1,5 +1,6 @@
 {...}: {
   imports = [
+    ./modules/build.nix
     ./modules/deploy-rs.nix
     ./modules/golang.nix
     ./modules/nix.nix
