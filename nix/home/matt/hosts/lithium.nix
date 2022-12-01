@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    ../../profiles/common
-    ../../profiles/server
+    ../profiles/common
+    ../profiles/server
   ];
 }
