@@ -45,15 +45,15 @@
         specialArgs = inputs;
       };
 
-      # "lithium" = nixpkgs.lib.nixosSystem {
-      #   inherit system;
+      "lithium" = nixpkgs.lib.nixosSystem {
+        inherit system;
 
-      #   modules = [
-      #     ./system/hosts/lithium
-      #   ];
+        modules = [
+          ./system/hosts/lithium
+        ];
 
-      #   specialArgs = inputs;
-      # };
+        specialArgs = inputs;
+      };
     };
 
     homeConfigurations = {
@@ -65,13 +65,13 @@
         ];
       };
 
-      # "matt@lithium" = home-manager.lib.homeManagerConfiguration {
-      #   inherit pkgs;
+      "matt@lithium" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
 
-      #   modules = [
-      #     ./home/matt/hosts/lithium.nix
-      #   ];
-      # };
+        modules = [
+          ./home/matt/hosts/lithium.nix
+        ];
+      };
     };
 
     deploy.nodes = {
