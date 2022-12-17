@@ -1,5 +1,5 @@
 {pkgs, ...}: {
   config = {
-    home.packages = with pkgs; [clang];
+    home.packages = with pkgs; [clang pkg-config];
   };
 }
