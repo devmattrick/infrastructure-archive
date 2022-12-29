@@ -7,7 +7,7 @@
 
   config = {
     # Use xanmod for desktops
-    boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linuxKernel.kernels.linux_xanmod;
+    boot.kernelPackages = pkgs.linuxPackages_latest;
 
     boot.supportedFilesystems = ["ntfs"];
 
@@ -34,6 +34,11 @@
     services.printing = {
       enable = true;
       webInterface = false;
+    };
+
+    hardware.opengl = {
+      enable = true;
+      driSupport32Bit = true;
     };
 
     documentation.nixos.enable = false;

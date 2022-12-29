@@ -36,7 +36,7 @@
   in {
     nixosConfigurations = {
       "hydrogen" = nixpkgs.lib.nixosSystem {
-        inherit system;
+        inherit pkgs system;
 
         modules = [
           ./system/hosts/hydrogen
@@ -46,7 +46,7 @@
       };
 
       "lithium" = nixpkgs.lib.nixosSystem {
-        inherit system;
+        inherit pkgs system;
 
         modules = [
           ./system/hosts/lithium
