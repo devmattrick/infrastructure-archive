@@ -7,6 +7,7 @@
         ublock-origin
         onepassword-password-manager
         sponsorblock
+        fediact
       ];
 
       profiles.default = {

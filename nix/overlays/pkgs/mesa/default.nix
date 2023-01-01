@@ -2,7 +2,6 @@
   stdenv,
   lib,
   fetchurl,
-  fetchgit,
   meson,
   pkg-config,
   ninja,
@@ -65,7 +64,8 @@
 with lib; let
   # Release calendar: https://www.mesa3d.org/release-calendar.html
   # Release frequency: https://www.mesa3d.org/releasing.html#schedule
-  version = "23.0.0-devel";
+  version = "22.3.1";
+  branch = versions.major version;
 
   rust-bindgen' = rust-bindgen.override {
     rust-bindgen-unwrapped = rust-bindgen.unwrapped.override {
@@ -77,10 +77,15 @@ with lib; let
     pname = "mesa";
     inherit version;
 
-    src = fetchgit {
-      url = "https://gitlab.freedesktop.org/mesa/mesa.git";
-      rev = "57f73d097ec915dde4a49732b5a40ae9ce368b89";
-      sha256 = "03f5iilrpc2cqfhg7bghix6wh7qzprrgqhgqhpdgdv9mgvjqcfyf";
+    src = fetchurl {
+      urls = [
+        "https://archive.mesa3d.org/mesa-${version}.tar.xz"
+        "https://mesa.freedesktop.org/archive/mesa-${version}.tar.xz"
+        "ftp://ftp.freedesktop.org/pub/mesa/mesa-${version}.tar.xz"
+        "ftp://ftp.freedesktop.org/pub/mesa/${version}/mesa-${version}.tar.xz"
+        "ftp://ftp.freedesktop.org/pub/mesa/older-versions/${branch}.x/${version}/mesa-${version}.tar.xz"
+      ];
+      sha256 = "sha256-PJzWEcCFnTB6ugZZgzOGq9ykyGFi08J1ulvmLRbPMes=";
     };
 
     # TODO:
@@ -154,6 +159,7 @@ with lib; let
       ]
       ++ optionals enableOpenCL [
         "-Dgallium-opencl=icd" # Enable the gallium OpenCL frontend
+        "-Dgallium-rusticl=true"
         "-Drust_std=2021"
         "-Dclang-libdir=${llvmPackages.clang-unwrapped.lib}/lib"
       ]
