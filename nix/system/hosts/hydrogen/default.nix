@@ -13,6 +13,7 @@
     ../../profiles/programming
 
     ../../modules/logitech.nix
+    ../../modules/rdna3.nix
   ];
 
   config = {
@@ -26,8 +27,10 @@
     boot.loader.efi.canTouchEfiVariables = true;
     boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
-    boot.initrd.kernelModules = [ "amdgpu" ];
-    services.xserver.videoDrivers = [ "amdgpu" ];
+    boot.initrd.kernelModules = ["amdgpu"];
+    services.xserver.videoDrivers = ["amdgpu"];
+
+    boot.kernelModules = ["coretemp" "nct6775"];
 
     # Setup keyfile
     boot.initrd.secrets = {

@@ -3,6 +3,7 @@
     ./modules/1password.nix
     ./modules/gnome.nix
     ./modules/noisetorch.nix
+    ./modules/openrgb.nix
   ];
 
   config = {
